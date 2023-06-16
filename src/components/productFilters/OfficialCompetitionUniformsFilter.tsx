@@ -4,8 +4,8 @@ import { CloseIcon, SelectedFilterButton, UnselectedFilterButton } from "../icon
 import { Dispatch, useEffect, useState } from 'react';
 import { OfficialCompetitionKit } from "../../pages/ProductDetail";
 import { generatePossibleSizes } from "./helper";
-import { useAnimate } from "framer-motion";
-import BlueButton, { BlackButton } from "../buttons";
+// import { useAnimate } from "framer-motion";
+// import BlueButton, { BlackButton } from "../buttons";
 
 const mockAvailableUnits = [
     "128",
@@ -51,7 +51,7 @@ function OfficialCompetitionUniformsFilter({ data, showMobileFilter, setShowFilt
     const [maxPrice, setMaxPrice] = useState(() => searchParams.has('maxPrice') ? parseInt(searchParams.get('maxPrice') ?? '') : 100);
     const [sizes, setSizes] = useState<Record<string, number>>({});
     const navigate = useNavigate();
-    const [scope, animate] = useAnimate();
+    // const [scope, animate] = useAnimate();
     const [selectedCompetitionKit, setSelectedCompetitionKit] = useState<ValidCompetitionKit | undefined>(undefined)
     const [selectedSizes, setSelectedSizes] = useState<Set<string>>(() => new Set());
     const [selectedFor, setSelectedFor] = useState<ValidGenders | undefined>(undefined);
@@ -215,7 +215,7 @@ function OfficialCompetitionUniformsFilter({ data, showMobileFilter, setShowFilt
         </div>
         {showMobileFilter &&
             <div className='overflow-scroll fixed top-[0px] left-[0px] w-[100vw] h-[100vh] bg-black z-[1000] mobile:flex desktop:hidden items-start justify-start pb-[100px]'
-                ref={scope}
+                // ref={scope}
             >
                 <div className='flex flex-col w-[100%]'>
                     <div className='relative py-[30px] flex items-center justify-center'>

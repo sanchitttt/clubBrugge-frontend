@@ -7,13 +7,13 @@ import ProductCardV4 from "../components/productCards/v4";
 import { useAppSelector } from "../hooks";
 import { Fragment } from 'react';
 
-const mockData = [{
-    "coverImage": "https://i.ibb.co/1M1k24x/image.png",
-    "selectedSize": "S",
-    "productId": "648a282ded72d6a000ca400c",
-    "price": "20",
-    "name": "T-shirt Club Badge Navy"
-}]
+// const mockData = [{
+//     "coverImage": "https://i.ibb.co/1M1k24x/image.png",
+//     "selectedSize": "S",
+//     "productId": "648a282ded72d6a000ca400c",
+//     "price": "20",
+//     "name": "T-shirt Club Badge Navy"
+// }]
 
 export interface CartItem {
     coverImage: string,

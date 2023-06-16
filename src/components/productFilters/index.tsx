@@ -40,7 +40,7 @@ interface FilterAccordian {
     type?: 'blackThemed' | undefined;
 }
 
-export function FilterAccordian({ heading, children, defaultOpened, type }: FilterAccordian) {
+export function FilterAccordian({ heading, children, defaultOpened }: FilterAccordian) {
     const [scope, animate] = useAnimate()
     const [opened, setOpened] = useState(defaultOpened);
     return (
