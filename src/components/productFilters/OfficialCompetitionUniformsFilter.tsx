@@ -64,7 +64,7 @@ function OfficialCompetitionUniformsFilter({ data, showMobileFilter, setShowFilt
 
 
     return <>
-        <div className='w-[300px] mx-[20px] flex flex-col mobile:hidden desktop:flex'>
+        <div className='w-[300px] mx-[20px] flex flex-col mobile:hidden desktop:flex bg-[#fff]'>
             <div className='greyLine' />
             <FilterAccordian heading='Competition Kit' defaultOpened={true}>
                 <div className='flex flex-col gap-[5px] mt-[20px] overflow-hidden'>
@@ -214,7 +214,7 @@ function OfficialCompetitionUniformsFilter({ data, showMobileFilter, setShowFilt
             </FilterAccordian>
         </div>
         {showMobileFilter &&
-            <div className='overflow-scroll fixed top-[0px] left-[0px] w-[100vw] h-[100vh] bg-black z-[1000] mobile:flex desktop:hidden items-start justify-start pb-[100px]'
+            <div className='desktop:hidden  overflow-scroll fixed top-[0px] left-[0px] w-[100vw] h-[100vh] bg-black z-[1000] mobile:flex desktop:hidden items-start justify-start pb-[100px]'
                 // ref={scope}
             >
                 <div className='flex flex-col w-[100%]'>

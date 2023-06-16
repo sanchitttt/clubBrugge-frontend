@@ -198,14 +198,19 @@ function ProductDetail() {
                     </div>
                     <div className='flex items-center justify-start py-[30px]'>
                         <button
-                            onClick={() => dispatch(addToCart({
-                                name: name as string,
-                                coverImage: details ? details.images[selectedImage] : '',
-                                quantity: 1,
-                                price: price as number,
-                                selectedSize: selectedSize as string,
-                                productId: arr[arr.length - 1]
-                            }))}
+                            onClick={() => {
+                                if (!selectedSize) {
+                                    window.alert("Select a size first")
+                                }
+                                else dispatch(addToCart({
+                                    name: name as string,
+                                    coverImage: details ? details.images[selectedImage] : '',
+                                    quantity: 1,
+                                    price: price as number,
+                                    selectedSize: selectedSize as string,
+                                    productId: arr[arr.length - 1]
+                                }))
+                            }}
                             aria-describedby="button"
                             className=' blueButton h-[50px] font-semibold w-[300px] gap-[10px] py-[20px] btn flex items-center  justify-center text-white uppercase tracking-wider'
                         // style={{ transform: 'translate(-50%,0%)' }}
@@ -359,14 +364,19 @@ function ProductDetail() {
                 </div>
                 <div className='fixed w-[100vw] bottom-[0px] h-[125px] rounded-tl-[15px] rounded-tr-[15px] bg-black flex items-center justify-center'>
                     <div className='flex items-center justify-start py-[30px]'
-                        onClick={() => dispatch(addToCart({
-                            name: name as string,
-                            coverImage: details ? details.images[selectedImage] : '',
-                            quantity: 1,
-                            price: price as number,
-                            selectedSize: selectedSize as string,
-                            productId: arr[arr.length - 1]
-                        }))}>
+                        onClick={() => {
+                            if (!selectedSize) {
+                                window.alert("Select a size first")
+                            }
+                            else dispatch(addToCart({
+                                name: name as string,
+                                coverImage: details ? details.images[selectedImage] : '',
+                                quantity: 1,
+                                price: price as number,
+                                selectedSize: selectedSize as string,
+                                productId: arr[arr.length - 1]
+                            }))
+                        }}>
                         <button
                             aria-describedby="button"
                             className=' blueButton h-[50px] font-semibold w-[80vw] gap-[10px] py-[20px] btn flex items-center  justify-center text-white uppercase tracking-wider'

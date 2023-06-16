@@ -7,6 +7,9 @@ import CartPage from './pages/CartPage';
 import { useEffect } from 'react';
 import { fetchCart } from './redux/features/cart/cartSlice';
 import { useAppDispatch } from './hooks';
+import CheckoutInformation from './pages/CheckoutInformation';
+import CheckoutDispatch from './pages/CheckoutDispatch';
+import CheckoutPayment from './pages/CheckoutPayment';
 
 
 const client = new QueryClient({
@@ -32,6 +35,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/cart' element={<CartPage />} />
+          <Route path='/checkout' element={<CheckoutInformation />} />
+          <Route path='/checkout/dispatch' element={<CheckoutDispatch />} />
+          <Route path='/checkout/payment' element={<CheckoutPayment />} />
           <Route path='/clothing/product/:productId' element={<ProductDetail />} />
           <Route key={key} path='/products/official-competition-uniforms' element={<ProductCatalog />} />
           <Route key={key} path='/products/clothing' element={<ProductCatalog />} />

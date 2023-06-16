@@ -208,7 +208,21 @@ img.transition {
     transform: rotate(-45deg);
 }
 
+button.transition {
+    transition: 0.25s;
+}
 
+.iconReturn {
+    stroke: #cfd0d1;
+}
+
+.iconReturn {
+    stroke: #cfd0d1;
+}
+
+.icon-discount{
+    stroke: #cfd0d1;
+}
 @media screen and (max-width:1100px) {
     .bannerText {
         display: none;

@@ -1,4 +1,5 @@
 // import BlueButton from "../components/buttons";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/footer"
 import Header from "../components/header"
 import { CartIcon } from "../components/icons";
@@ -6,6 +7,8 @@ import ProductCardV3 from "../components/productCards/v3";
 import ProductCardV4 from "../components/productCards/v4";
 import { useAppSelector } from "../hooks";
 import { Fragment } from 'react';
+import axios from "axios";
+import config from "../config";
 
 // const mockData = [{
 //     "coverImage": "https://i.ibb.co/1M1k24x/image.png",
@@ -24,17 +27,22 @@ export interface CartItem {
     quantity: number
 }
 
-const calculateSubtotal = (data: CartItem[]) => {
+export const calculateSubtotal = (data: CartItem[]) => {
     return data.reduce(
         (accumulator, currentValue) => accumulator + currentValue.quantity * currentValue.price,
         0
     );
 }
 
+const generateTokenOrUseExisting = async () => {
+    await axios.get(`${config.BACKEND_ENDPOINT}/checkout`, { withCredentials: true });
+}
+
 function CartPage() {
     const { cartData } = useAppSelector((state) => state.cart);
-    console.log(cartData)
-    console.log(cartData)
+
+    const navigate = useNavigate();
+
     return (
         <div>
             <Header />
@@ -81,7 +89,8 @@ function CartPage() {
                                 <div className='text-[#0d121a] text-[18px] font-semibold'>${calculateSubtotal(cartData)}</div>
                             </div>
                             <div className='flex items-center  w-[100%] justify-center py-[30px] w-[100%]'>
-                                <button
+                                <a
+                                    onClick={() => navigate('/checkout')}
                                     aria-describedby="button"
                                     className=' blueButton w-[100%]  h-[50px] font-semibold  gap-[10px] py-[20px] btn flex items-center  justify-center text-white uppercase tracking-wider'
                                 // style={{ transform: 'translate(-50%,0%)' }}
@@ -89,7 +98,7 @@ function CartPage() {
                                     <CartIcon />
                                     Ready to order ›
 
-                                </button>
+                                </a>
                             </div>
                             <ul role="list" className='flex gap-[15px] ml-[5px]'>
 
@@ -173,6 +182,10 @@ function CartPage() {
                             <div className='flex items-center  w-[100%] justify-center py-[15px] w-[100%]'>
                                 <button
                                     aria-describedby="button"
+                                    onClick={() => {
+                                        navigate('/checkout')
+                                        generateTokenOrUseExisting()
+                                    }}
                                     className=' blueButton w-[100%]  h-[50px] font-semibold  gap-[10px]  btn flex items-center  justify-center text-white uppercase tracking-wider'
                                 // style={{ transform: 'translate(-50%,0%)' }}
                                 >
