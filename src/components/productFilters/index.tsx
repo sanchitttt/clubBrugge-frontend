@@ -44,7 +44,7 @@ export function FilterAccordian({ heading, children, defaultOpened }: FilterAcco
     const [scope, animate] = useAnimate()
     const [opened, setOpened] = useState(defaultOpened);
     return (
-        <div className={`flex flex-col w-[100%]  my-[10px]`}>
+        <div className={`flex flex-col w-[100%]  my-[10px] mobile:bg-[#2a3548] desktop:bg-[#fff]`}>
             <button className='flex items-center justify-between'
                 onClick={() => {
                     setOpened(!opened)
