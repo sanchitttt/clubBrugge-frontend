@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Prompt:wght@100;200;300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Prompt';
+
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+
+}
+
+:root {
+    --softGrey: #91a4c2;
+    --black: #0d121a;
+    --white: #e6f1ff;
+    --blue: #0572ff;
+    --darkBlue: #00459d;
+    --midGrey: #2a3548;
+}
+
+input:focus {
+    outline: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.icon-account {
+    fill: var(--white);
+}
+
+.icon-cart {
+    fill: var(--white);
+}
+
+.bebas {
+    font-family: 'Fjalla One';
+}
+
+.icon-search {
+    fill: var(--white);
+}
+
+.icon-new {
+    color: var(--white);
+}
+
+
+
+.btn {
+    border-radius: 999px;
+    padding: 7px 15px;
+}
+
+.blueButton {
+    background-color: var(--blue);
+    box-shadow: inset 0 0 0 0 var(--blue);
+    transition: all 0.8s;
+}
+
+.blueButton:hover {
+    box-shadow: inset 0 -100px 0 0 var(--darkBlue)
+}
+
+.blackButton {
+    background-color: var(--black);
+    box-shadow: inset 0 0 0 0 var(--black);
+    color: var(--white);
+    border: 1px solid var(--white);
+    transition: all 0.8s;
+}
+
+.blackButton:hover {
+    background-color: var(--black);
+    box-shadow: inset 0 -100px 0 0 #fff;
+    border: 1px solid #fff;
+    color: var(--black);
+}
+
+.banner-img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.navLink {
+    border-bottom: 2px solid #2a3548;
+    transition: all 0.3s;
+}
+
+.navLink:hover {
+    border-bottom: 2px solid var(--blue);
+}
+
+div.transition {
+    transition: all 0.25s;
+}
+
+.productv1 img {
+    border-radius: 10px;
+}
+
+.shirtTypeBlueHover {
+    transition: all 0.2s;
+}
+
+.shirtTypeBlueHover:hover {
+    background-color: #0572ff;
+}
+
+img.transition {
+    transition: all 0.25s;
+}
+
+/* .displayShow {
+    display: flex;
+}
+
+.displayHide {
+    display: none;
+} */
+
+
+.lastSection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.borderLG {
+    background: linear-gradient(90deg, #2a3548, #0d121a 50%, #2a3548);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.list-payment__item {
+    background-color: var(--mid-grey);
+    padding: 0;
+    margin: 0 .3125rem;
+    border-radius: .1875rem;
+}
+
+.greyLine {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, #d1ddec, #f4f6f9 50%, #d1ddec);
+}
+
+.blackLine {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #2a3548, #0d121a 50%, #2a3548);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.borderBottomGrey {
+    border-bottom: 1px solid linear-gradient(90deg, #d1ddec, #f4f6f9 50%, #d1ddec);
+}
+
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.fOne {
+    font-family: 'Fjalla One';
+}
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: white;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+
+@media screen and (max-width:1100px) {
+    .bannerText {
+        display: none;
+    }
+}
