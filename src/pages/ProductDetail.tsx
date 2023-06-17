@@ -121,7 +121,7 @@ function ProductDetail() {
     }
 
 
-
+    console.log(arr, arr[arr.length - 2])
     return (
         <div className='w-[100vw] h-[100vh] bg-black flex flex-col'>
             <Header />
@@ -181,10 +181,11 @@ function ProductDetail() {
                             <div className='text-[13px] text-[#333]'>({totalReviews} reviews)</div>
                         </div>
                     </div>
-                    <div className='text-[15px] text-black mt-[30px]'>
-                        Sizes
-                    </div>
-                    <div className='flex gap-[5px] mt-[10px]'>
+                    {arr && arr[arr.length - 2] !== 'fan-articles' && arr[arr.length - 2] !== 'summer' &&
+                        <div className='text-[15px] text-black mt-[30px]'>
+                            Sizes
+                        </div>}
+                    {arr && arr[arr.length - 2] !== 'fan-articles' && arr[arr.length - 2] !== 'summer' && <div className='flex gap-[5px] mt-[10px]'>
                         {availableUnits && Object.keys(availableUnits).map((objKey) => {
                             const propertyValue = availableUnits ? availableUnits[objKey as keyof AvailableUnits] : 0;
                             return <div
@@ -195,11 +196,11 @@ function ProductDetail() {
                                 {objKey}
                             </div>
                         })}
-                    </div>
+                    </div>}
                     <div className='flex items-center justify-start py-[30px]'>
                         <button
                             onClick={() => {
-                                if (!selectedSize) {
+                                if (!selectedSize && arr[arr.length - 2] !== 'fan-articles' && arr[arr.length-2] !== 'summer') {
                                     window.alert("Select a size first")
                                 }
                                 else dispatch(addToCart({
@@ -365,7 +366,8 @@ function ProductDetail() {
                 <div className='fixed w-[100vw] bottom-[0px] h-[125px] rounded-tl-[15px] rounded-tr-[15px] bg-black flex items-center justify-center'>
                     <div className='flex items-center justify-start py-[30px]'
                         onClick={() => {
-                            if (!selectedSize) {
+                            console.log(arr, arr[arr.length - 2])
+                            if (!selectedSize && arr[arr.length - 2] !== 'fan-articles' && arr[arr.length-2] !== 'summer') {
                                 window.alert("Select a size first")
                             }
                             else dispatch(addToCart({

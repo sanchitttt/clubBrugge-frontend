@@ -5,9 +5,10 @@ import OfficialCompetitionUniformsFilter from "./OfficialCompetitionUniformsFilt
 import ClothingFilters from "./ClothingFilters";
 import FanArticlesFilters from "./FanArticlesFilters";
 import NewProductsFilters from "./NewProductsFilters";
+import SummerFilters from "./SummerFilters";
 
 
-export type ValidProductFilterType = 'official-competition-uniforms' | 'clothing' | 'fan-articles' | 'collections' | 'new';
+export type ValidProductFilterType = 'official-competition-uniforms' | 'clothing' | 'fan-articles' | 'collections' | 'new' | 'summer';
 
 interface BaseFilterType {
     type: ValidProductFilterType;
@@ -75,13 +76,16 @@ function ProductFilters({ type, data, showMobileFilter, setShowFilter }: Product
         return <OfficialCompetitionUniformsFilter setShowFilter={setShowFilter} showMobileFilter={showMobileFilter} data={data as unknown as OfficialCompetitionKit[]} />
     }
     else if (type === 'clothing') {
-        return <ClothingFilters data={data as unknown as Clothing[]} />
+        return <ClothingFilters showMobileFilter={showMobileFilter} setShowFilter={setShowFilter} data={data as unknown as Clothing[]} />
     }
     else if (type === 'fan-articles') {
-        return <FanArticlesFilters />
+        return <FanArticlesFilters showMobileFilter={showMobileFilter} setShowFilter={setShowFilter} />
     }
     else if (type === 'new') {
-        return <NewProductsFilters />
+        return <NewProductsFilters showMobileFilter={showMobileFilter} setShowFilter={setShowFilter} />
+    }
+    else if (type === 'summer') {
+        return <SummerFilters />
     }
     return (
         <div>

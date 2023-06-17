@@ -6,72 +6,8 @@ import Header from "../components/header";
 import PersonalizeShirt from "../components/personalizeShirt";
 import ProductCardV1 from "../components/productCards/v1";
 import config from "../config";
-// import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
-
-// const mockSummerData = [{
-//     "name": "Swim shorts",
-//     "rating": 4.3,
-//     "totalReviews": "7",
-//     "price": "30.00",
-//     "coverImage": "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/Zwemshort.jpg?v=1671727930&width=823",
-//     "details": {
-//         "images": ["https://cdn.shopify.com/s/files/1/0629/7881/8265/products/Zwemshort.jpg?v=1671727930&width=823"],
-//         "description": "These Club Brugge swimming shorts have two color sections, how could it be otherwise, blue and black. The swim shorts are spacious and wide, ideal for those who want to be active in and around the water."
-//     }
-// }, {
-//     "name": "Towel Blue",
-//     "rating": 5,
-//     "totalReviews": "2",
-//     "price": "35.00",
-//     "coverImage": "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/handdoekblauw_720x.jpg?v=1673922777",
-//     "details": {
-//         "images": ["https://cdn.shopify.com/s/files/1/0629/7881/8265/products/handdoekblauw_720x.jpg?v=1673922777"],
-//         "description": "Club bath towel in bright blue. The towel is in 1 colour, but the relief of the imprint makes the logo with slogan come into its own.\nPerfect for after swimming lessons, football training or on the beach.\nDimensions: 70 & 140 (L) cm"
-//     }
-// }, {
-//     "name": "Leather coasters (4 pieces)",
-//     "rating": 3.2,
-//     "totalReviews": 3,
-//     "price": "15.00",
-//     "coverImage": "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/lederenonderzetters.jpg?v=1665091177&width=823",
-//     "details": {
-//         "images": ["https://cdn.shopify.com/s/files/1/0629/7881/8265/products/lederenonderzetters.jpg?v=1665091177&width=823", "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/lederenonderzetters2.jpg?v=1665091177&width=823"],
-//         "description": "Four stylish leather coasters made of genuine Belgian leather with a diamter of 10 cm. Health!"
-//     }
-// }, {
-//     "name": "Sports bag",
-//     "rating": 5,
-//     "totalReviews": 3,
-//     "price": "20.00",
-//     "coverImage": "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/ZwemzakC.jpg?v=1670452744&width=823",
-//     "details": {
-//         "images": ["https://cdn.shopify.com/s/files/1/0629/7881/8265/products/ZwemzakC.jpg?v=1670452744&width=823", "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/zwemzakB.jpg?v=1670452758&width=823", "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/zwemzak_f871281b-30b4-46b1-8a3f-ef9c2ccb05f8.jpg?v=1670452767&width=823"],
-//         "description": "With this high quality bag you have your sports gear immediately at hand for the gym or the swimming pool. Finished with a waterproof button in a football patter, this bag with a monotone logo is a real must-have for those who want to support their Club in a subtle way."
-//     }
-// }, {
-//     "name": "Wine cooler",
-//     "rating": 3,
-//     "totalReviews": 1,
-//     "price": "20.00",
-//     "coverImage": "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/20220921_ITEMS1_web.jpg?v=1665090940&width=823",
-//     "details": {
-//         "images": ["https://cdn.shopify.com/s/files/1/0629/7881/8265/products/20220921_ITEMS1_web.jpg?v=1665090940&width=823", "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/wijnkoeler-3.jpg?v=1665090940&width=823"],
-//         "description": "As Club supporters, we naturally have a lot of victories to celebrate. This cooler is ideal for keeping wine, cava or champagne fresh."
-//     }
-// }, {
-//     "name": "Zwem Shorts Kids",
-//     "rating": 5,
-//     "totalReviews": 1,
-//     "price": "25.00",
-//     "coverImage": "https://cdn.shopify.com/s/files/1/0629/7881/8265/products/zwemshort-kids.jpg?v=1662064950&width=823",
-//     "details": {
-//         "images": ["https://cdn.shopify.com/s/files/1/0629/7881/8265/products/zwemshort-kids.jpg?v=1662064950&width=823"],
-//         "description": "Besides playing football, do you also like to swim? With these blue swimming shorts you will have hours of fun."
-//     }
-// }
-
-// ]
 
 const fetchSummer = () => {
     return axios.get(`${config.BACKEND_ENDPOINT}/summer`)
@@ -83,7 +19,7 @@ function Landing() {
         queryFn: fetchSummer
     });
 
-    
+    const navigate = useNavigate();
     return (
         <div className='bg-black w-[100vw] mobile:flex gap-[30px]  desktop:block flex-col items-center '>
             <Header />
@@ -117,7 +53,9 @@ function Landing() {
                 <div className='mobile:hidden desktop:flex items-center justify-between '>
                     <div className="uppercase py-[5vw] text-[48px] text-softWhite bebas font-bold tracking-wide"
                     >Summer Temperatures</div>
-                    <BlackButton>Show more</BlackButton>
+                    <div onClick={() => navigate('/products/summer')}>
+                        <BlackButton>Show more</BlackButton>
+                    </div>
                 </div>
                 {/**For Mobile */}
                 <div className='mobile:flex desktop:hidden  py-[5vw] items-start justify-between '>
@@ -127,12 +65,15 @@ function Landing() {
                         <div className="uppercase text-[30px] text-softWhite font-bold tracking-tighter"
                         >Temperatures</div>
                     </div>
-                    <BlackButton paddingX='12px'>Show more</BlackButton>
+                    <div onClick={() => navigate('/products/summer')}>
+                        <BlackButton paddingX='12px'>Show more</BlackButton>
+                    </div>
                 </div>
                 {/**For both */}
                 <div className='flex desktop:justify-between mobile:justify-center items-center gap-[20px] flex-wrap'>
-                    {data && Array.isArray(data.data) && data.data.slice(0, 4).map(({ name, rating, price, coverImage }) => {
+                    {data && Array.isArray(data.data) && data.data.slice(0, 4).map(({ name, rating, price, coverImage, _id }) => {
                         return <ProductCardV1
+                            href={`/products/summer/${_id}`}
                             key={name}
                             name={name}
                             rating={rating}
@@ -159,7 +100,9 @@ function Landing() {
                     <div className='absolute top-[0%] left-[10px] flex flex-col gap-[15px]'>
                         <div className='text-[48px] bebas uppercase text-white'>New Arrivals!</div>
                         <div className='text-[16px] text-softWhite'>The latest t-shirts,sweaters and gadgets from Club Brugge</div>
-                        <BlueButton width='290px' semibold>Discover the new items</BlueButton>
+                        <div onClick={() => navigate('/products/new')}>
+                            <BlueButton width='290px' semibold>Discover the new items</BlueButton>
+                        </div>
                     </div>
                 </div>
                 <div className='relative desktop:w-[40vw] mobile:w-[90vw] rounded-[10px] h-[225px] lastSection'>
@@ -184,7 +127,9 @@ function Landing() {
                     <div className='absolute top-[20%] left-[10px] flex flex-col gap-[15px]'>
                         <div className='text-[48px] bebas uppercase text-white tracking-tight leading-10'>CLUB BRUGGE DARTS</div>
                         <div className='text-[16px] text-softWhite'>Now hit your 180's FCB style.</div>
-                        <BlueButton width='280px' semibold>Discover the collection</BlueButton>
+                        <div onClick={() => navigate('/products/new')}>
+                            <BlueButton width='280px' semibold>Discover the collection</BlueButton>
+                        </div>
                     </div>
                 </div>
 
@@ -251,7 +196,9 @@ function Landing() {
                         <div className='absolute top-[20%] left-[10px] flex flex-col gap-[15px]'>
                             <div className='text-[48px] bebas uppercase text-white tracking-tight leading-10'>1891-OUR NUMBER</div>
                             <div className='text-[16px] text-softWhite'>The popular collection is not in stock.</div>
-                            <BlueButton width='220px' semibold>To the collection</BlueButton>
+                            <div onClick={() => navigate(`/products/clothing?collectionType=1891`)}>
+                                <BlueButton width='220px' semibold>To the collection</BlueButton>
+                            </div>
                         </div>
                     </div>
                 </div>

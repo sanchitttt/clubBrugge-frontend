@@ -67,11 +67,13 @@ export function SearchIcon({ width }: { width?: string }) {
 export function UnselectedFilterButton() {
     return <img
         src={'https://cdn.shopify.com/s/files/1/0629/7881/8265/files/unchecked.png?v=1657183158'}
+        alt='notSelected'
     />
 }
 
 export function SelectedFilterButton() {
     return <img
         src={'https://cdn.shopify.com/s/files/1/0629/7881/8265/files/checked.png?v=1657183158'}
+        alt='selected'
     />
 }

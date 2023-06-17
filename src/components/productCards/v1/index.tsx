@@ -3,12 +3,16 @@ export interface ProductCard {
     src: string,
     name: string,
     price: string,
-    rating: number
+    rating: number,
+    href?: string
 }
 
-function ProductCardV1({ src, name, price, rating }: ProductCard) {
+function ProductCardV1({ src, name, price, rating, href }: ProductCard) {
     return (
-        <div className='flex flex-col w-[300px] h-[400px] productv1 gap-[10px]'>
+        <a
+            href={href}
+            className='flex flex-col w-[300px] h-[400px] productv1 gap-[10px]'
+        >
             <img src={src}
                 alt={name}
                 width='300px'
@@ -28,7 +32,7 @@ function ProductCardV1({ src, name, price, rating }: ProductCard) {
 
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
 

@@ -67,6 +67,9 @@ function CartPage() {
                                         <div className='greyLine' style={{ background: 'linear-gradient(90deg,#d1ddec,#f4f6f9 50%,#d1ddec)' }} />
                                     </Fragment>
                                 })}
+                                {!cartData.length && <div>
+                                    <div className=''>Your shopping cart is empty</div>
+                                </div>}
                             </div>
 
                         </div>

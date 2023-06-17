@@ -42,11 +42,13 @@ function App() {
           <Route key={key} path='/products/official-competition-uniforms' element={<ProductCatalog />} />
           <Route key={key} path='/products/clothing' element={<ProductCatalog />} />
           <Route key={key} path='/products/fan-articles' element={<ProductCatalog />} />
-          <Route path='/products/new' element={<ProductCatalog />} />
+          <Route key={key} path='/products/new' element={<ProductCatalog />} />
+          <Route key={key} path='/products/summer' element={<ProductCatalog />} />
           <Route path='/products/clothing/collections' element={<ProductCatalog />} />
           <Route path='/products/official-competition-uniforms/*' element={<ProductDetail />} />
           <Route path='/products/clothing/*' element={<ProductDetail />} />
           <Route path='/products/fan-articles/*' element={<ProductDetail />} />
+          <Route path='/products/summer/*' element={<ProductDetail />} />
 
           {/* <Route path='/new/product/:productId' element={<ProductDetail
         />} />

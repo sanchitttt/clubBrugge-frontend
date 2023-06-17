@@ -7,7 +7,7 @@ import { generatePossibleSizes } from "./helper";
 // import { useAnimate } from "framer-motion";
 // import BlueButton, { BlackButton } from "../buttons";
 
-const mockAvailableUnits = [
+export const mockAvailableUnits = [
     "128",
     "140",
     "152",
@@ -195,7 +195,7 @@ function OfficialCompetitionUniformsFilter({ data, showMobileFilter, setShowFilt
             </FilterAccordian>
             <div className='greyLine mt10' />
             <FilterAccordian heading='Color' defaultOpened={false}>
-                <div className='flex flex-col gap-[10px]'>
+                <div className='flex flex-col gap-[10px] '>
                     {mockColors.map((color) => {
                         const value = searchParams.get('color');
                         return <div className='flex gap-[10px]' key={color}>

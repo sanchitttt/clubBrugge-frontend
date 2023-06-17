@@ -14,7 +14,7 @@ function Navbar() {
     return (
         <>
             {/**For mobile screens */}
-            <div className='flex items-center justify-between px-[1.5rem] bg-black py-[35px] desktop:hidden mobile:flex w-[100%] h-[100px]'>
+            <div className='relative flex items-center justify-between px-[1.5rem] bg-black py-[35px] desktop:hidden mobile:flex w-[100%] h-[100px]'>
                 <div className='mt-[0px]' onClick={() => {
                     animate(scope.current, { height: '100vh', display: 'flex' });
                 }}>

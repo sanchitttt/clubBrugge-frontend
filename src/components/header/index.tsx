@@ -1,3 +1,4 @@
+import Announcement from "../announcement";
 import Navbar from "../navbar";
 import NavLinks from "../navlinks";
 import SearchBar from "../searchBar";
@@ -5,6 +6,7 @@ import SearchBar from "../searchBar";
 function Header() {
     return (
         <>
+            <Announcement />
             <Navbar />
             <NavLinks />
             {/**For mobile  */}
